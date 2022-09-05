@@ -1,7 +1,10 @@
-### SocaTor = SOCAT + TOR
-Based on https://github.com/Arno0x/Docker-Socator
 
-It uses socat to listen on a given TCP port (5000 in this example) and to redirect incoming traffic to a tor hidden service specified through environment variables. Itacts as a relay between the standard web and a hidden service on the tor network. You can optionally restrict the IP addresses that are allowed to connect to this service by specifying an `ALLOWED_RANGE` environment variable and using CIDR notation.
+
+### SocaTor = CADDY + SOCAT + TOR
+Based on https://github.com/Arno0x/Docker-Socator
+https://github.com/beacloudgenius/socator 
+
+It uses caddy as a front end for tls and https then forwards to socat to listen on a given TCP port 5000 and to redirect incoming traffic to a tor hidden service specified through environment variables. Itacts as a relay between the standard web and a hidden service on the tor network. You can optionally restrict the IP addresses that are allowed to connect to this service by specifying an `ALLOWED_RANGE` environment variable and using CIDR notation.
 
 ### Usage
 
@@ -37,4 +40,4 @@ Selectively expose the BTC Pay Server payment gateway and API to clearnet using 
         --name socator \
         cloudgenius/socato
 
-Now http://localhost:5000 should show you the tor hidden service you specified in the above command.
+Now https://yourdomain.name should show you the tor hidden service you specified in the above command.
