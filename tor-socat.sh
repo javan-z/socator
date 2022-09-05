@@ -26,3 +26,11 @@ if [ -z "${ALLOWED_RANGE}" ]; then
 else
 	socat tcp4-LISTEN:5000,reuseaddr,fork,keepalive,range=${ALLOWED_RANGE} SOCKS4A:127.0.0.1:${TOR_SITE}:${TOR_SITE_PORT},socksport=9050
 fi
+
+# Start Caddy as a reverse proxy and get TLS Cert
+caddy reverse-proxy --from ravenwolf.angellikefire.com --to localhost:5000
+
+if [ $? -ne 0 ]; then
+	echo "caddy did not start properly - Exiting"
+	exit $?
+fi
