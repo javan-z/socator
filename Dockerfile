@@ -1,5 +1,5 @@
-FROM alpine:3.14
-MAINTAINER Nilesh
+FROM alpine:3.16.2
+MAINTAINER javan-z
 
 ADD ./tor-socat.sh /
 ADD ./torrc /etc/tor/torrc
