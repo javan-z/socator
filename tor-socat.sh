@@ -28,7 +28,7 @@ else
 fi
 
 # Start Caddy as a reverse proxy and get TLS Cert
-caddy reverse-proxy --from ravenwolf.angellikefire.com --to localhost:5000
+caddy reverse-proxy --from ${DOMAIN} --to localhost:5000
 
 if [ $? -ne 0 ]; then
 	echo "caddy did not start properly - Exiting"
