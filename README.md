@@ -1,10 +1,10 @@
 
 
-### SocaTor = CADDY + SOCAT + TOR
+### SocaTor = SOCAT + TOR
 Based on https://github.com/Arno0x/Docker-Socator
 https://github.com/beacloudgenius/socator 
 
-It uses caddy as a front end for tls and https then forwards to socat to listen on a given TCP port 5000 and to redirect incoming traffic to a tor hidden service specified through environment variables. Itacts as a relay between the standard web and a hidden service on the tor network. You can optionally restrict the IP addresses that are allowed to connect to this service by specifying an `ALLOWED_RANGE` environment variable and using CIDR notation.
+Use socat to listen on a given TCP port 5000 and to redirect incoming traffic to a tor hidden service specified through environment variables. Itacts as a relay between the standard web and a hidden service on the tor network. You can optionally restrict the IP addresses that are allowed to connect to this service by specifying an `ALLOWED_RANGE` environment variable and using CIDR notation.
 
 ### Usage
 
@@ -15,11 +15,11 @@ Selectively expose the BTC Pay Server payment gateway and API to clearnet using 
 
 ##### build
 
-    docker build -t cloudgenius/socator .
+    docker build -t saba9/socator .
 
 ##### push
 
-    docker push cloudgenius/socator
+    docker push saba9/socator
 
 ##### Start the image in background (*daemon mode*) with IP address restriction:
 
@@ -29,7 +29,7 @@ Selectively expose the BTC Pay Server payment gateway and API to clearnet using 
         -e "TOR_SITE=zqktlwiuavvvqqt4ybvgvi7tyo4hjl5xgfuvpdf6otjiycgwqbym2qad.onion" \
         -e "TOR_SITE_PORT=80" \
         --name socator \
-        cloudgenius/socator
+        saba9/socator
 
 ##### Start the image in foreground:
 
@@ -38,6 +38,6 @@ Selectively expose the BTC Pay Server payment gateway and API to clearnet using 
         -e "TOR_SITE=zqktlwiuavvvqqt4ybvgvi7tyo4hjl5xgfuvpdf6otjiycgwqbym2qad.onion" \
         -e "TOR_SITE_PORT=80" \
         --name socator \
-        cloudgenius/socato
+        saba9/socato
 
 Now https://yourdomain.name should show you the tor hidden service you specified in the above command.
