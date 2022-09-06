@@ -6,7 +6,7 @@ ADD ./torrc /etc/tor/torrc
 
 RUN apk update \
 	&& apk upgrade  \
-	&& apk add tor socat\
+	&& apk add tor socat \
 	&& rm -rf /var/cache/apk/* \
 	&& chmod +x /tor-socat.sh
 
