@@ -15,11 +15,11 @@ Selectively expose the BTC Pay Server payment gateway and API to clearnet using 
 
 ##### build
 
-    docker build -t saba9/socator .
+    docker build -t sabazk/socator .
 
 ##### push
 
-    docker push saba9/socator
+    docker push sabazk/socator
 
 ##### Start the image in background (*daemon mode*) with IP address restriction:
 
@@ -29,7 +29,7 @@ Selectively expose the BTC Pay Server payment gateway and API to clearnet using 
         -e "TOR_SITE=zqktlwiuavvvqqt4ybvgvi7tyo4hjl5xgfuvpdf6otjiycgwqbym2qad.onion" \
         -e "TOR_SITE_PORT=80" \
         --name socator \
-        saba9/socator
+        sabazk/socator
 
 ##### Start the image in foreground:
 
@@ -38,6 +38,6 @@ Selectively expose the BTC Pay Server payment gateway and API to clearnet using 
         -e "TOR_SITE=zqktlwiuavvvqqt4ybvgvi7tyo4hjl5xgfuvpdf6otjiycgwqbym2qad.onion" \
         -e "TOR_SITE_PORT=80" \
         --name socator \
-        saba9/socato
+        sabazk/socator
 
 Now https://yourdomain.name should show you the tor hidden service you specified in the above command.
